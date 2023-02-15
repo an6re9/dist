@@ -8,24 +8,138 @@ rotating();
 window.addEventListener("resize", moveElementsOnResize);
 moveElementsOnResize();
 accordeon();
+lottieAnim();
 // lottie json animations
 //
-const anim = lottie;
 
-anim.loadAnimation({
-  container: document.querySelector(".json-anim-footer"),
-  renderer: "canvas",
-  loop: true,
-  autoplay: true,
-  path: "img/common/JSONAnim/AnimatedSticker-ok.json",
-});
-anim.loadAnimation({
-  container: document.querySelector(".json-anim-page-request"),
-  renderer: "canvas",
-  loop: true,
-  autoplay: true,
-  path: "img/common/JSONAnim/AnimatedSticker-cool.json",
-});
+function lottieAnim() {
+  const anim = lottie;
+
+  lottieHoverEffect("data-animated-sticker");
+
+  function lottieHoverEffect(atribute) {
+    const elements = document.querySelectorAll(`[${atribute}]`);
+
+    elements.forEach((element) => {
+      element.addEventListener("mouseover", hoverEventHandler);
+      element.addEventListener("mouseout", outEventHandler);
+    });
+
+    function hoverEventHandler(e) {
+      const animationName = this.dataset.animatedSticker;
+
+      this.removeEventListener("mouseenter", hoverEventHandler);
+      this.addEventListener("mouseleave", outEventHandler);
+
+      anim.play(animationName);
+    }
+    function outEventHandler(e) {
+      const animationName = this.dataset.animatedSticker;
+      setTimeout(() => {
+        this.addEventListener("mouseover", hoverEventHandler);
+        this.removeEventListener("mouseout", outEventHandler);
+        anim.stop(animationName);
+      }, 3000);
+    }
+  }
+
+  // presentation
+  // tg-benefits
+  anim.loadAnimation({
+    container: document.querySelector(".tg-benefits__icon_medal>div"),
+    renderer: "canvas",
+    loop: false,
+    autoplay: false,
+    path: "img/presentation/bottom/JSONAnim/medal.json",
+    name: "medal",
+  });
+  anim.loadAnimation({
+    container: document.querySelector(".tg-benefits__icon_money>div"),
+    renderer: "canvas",
+    loop: false,
+    autoplay: false,
+    path: "img/presentation/bottom/JSONAnim/money.json",
+    name: "money",
+  });
+  anim.loadAnimation({
+    container: document.querySelector(".tg-benefits__icon_rocket>div"),
+    renderer: "canvas",
+    loop: false,
+    autoplay: false,
+    path: "img/presentation/bottom/JSONAnim/rocket.json",
+    name: "rocket",
+  });
+  anim.loadAnimation({
+    container: document.querySelector(".tg-benefits__icon_arm>div"),
+    renderer: "canvas",
+    loop: false,
+    autoplay: false,
+    path: "img/presentation/bottom/JSONAnim/arm.json",
+    name: "arm",
+  });
+
+  // about
+
+  anim.loadAnimation({
+    container: document.querySelector(".page-about__item-icon_personal>div"),
+    renderer: "canvas",
+    loop: false,
+    autoplay: false,
+    path: "img/about/JSONAnim/personal_cabinet.json",
+    name: "personal",
+  });
+  anim.loadAnimation({
+    container: document.querySelector(".page-about__item-icon_robot>div"),
+    renderer: "canvas",
+    loop: false,
+    autoplay: false,
+    path: "img/about/JSONAnim/robot.json",
+    name: "robot",
+  });
+  anim.loadAnimation({
+    container: document.querySelector(".page-about__item-icon_keyboard>div"),
+    renderer: "canvas",
+    loop: false,
+    autoplay: false,
+    path: "img/about/JSONAnim/keyboard.json",
+    name: "keyboard",
+  });
+  anim.loadAnimation({
+    container: document.querySelector(".page-about__item-icon_helmet>div"),
+    renderer: "canvas",
+    loop: false,
+    autoplay: false,
+    path: "img/about/JSONAnim/helmet.json",
+    name: "helmet",
+  });
+  anim.loadAnimation({
+    container: document.querySelector(".page-about__item-icon_support>div"),
+    renderer: "canvas",
+    loop: false,
+    autoplay: false,
+    path: "img/about/JSONAnim/support.json",
+    name: "support",
+  });
+
+  //
+  // ducks
+  anim.loadAnimation({
+    container: document.querySelector(".json-anim-footer"),
+    renderer: "canvas",
+    loop: true,
+    autoplay: true,
+    path: "img/common/JSONAnim/AnimatedSticker-ok.json",
+  });
+
+  anim.loadAnimation({
+    container: document.querySelector(".json-anim-page-request"),
+    renderer: "canvas",
+    loop: true,
+    autoplay: true,
+    path: "img/common/JSONAnim/AnimatedSticker-cool.json",
+  });
+  //
+}
 
 // swiper
 //
@@ -108,7 +222,6 @@ function moveElementsOnResize() {
       function move() {
         if (window.innerWidth >= controlPoint) {
           parent.prepend(elToMove);
-          // console.log(1);
         } else {
           neib.insertBefore(elToMove, beforeElement);
         }
@@ -124,15 +237,14 @@ function rotating() {
   const parentContainer = document.querySelector(
     ".page-presentation__view-back"
   );
-  // angle не должен иметь конкретное значение, он должен увеличиваться с каждым кадром в цикле animate().
-  // Это позволяет планетам "вращаться" вокруг центра.
-  let angle = 0;
-
-  // const centerX = parentContainer.offsetWidth / 2;
-  // доп сдвиги так как  фон лежит неровно
-  const centerX = parentContainer.offsetWidth / 2 - 50;
-  const centerY = parentContainer.offsetHeight / 2 - 120;
+  const centerX = parentContainer.offsetWidth / 2 - 40;
+  const centerY = parentContainer.offsetHeight / 2 - 40;
   let running = true;
+
+  const angles = [];
+  planets.forEach((planet, index) => {
+    angles.push(0);
+  });
 
   function animate() {
     if (!running) return;
@@ -140,12 +252,15 @@ function rotating() {
     planets.forEach((planet, index) => {
       const orbitWidth = parseInt(planet.dataset.orbitWidth);
       const speed = Number(planet.dataset.planetSpeed);
-      // console.log(speed);
-      angle += speed;
-      const x = centerX + orbitWidth * Math.cos(angle + (index * Math.PI) / 2);
-      const y = centerY + orbitWidth * Math.sin(angle + (index * Math.PI) / 2);
-      planet.style.left = x + "px";
-      planet.style.top = y + "px";
+      const direction = planet.dataset.direction === "false" ? -1 : 1;
+
+      angles[index] += (speed * direction) / 1000;
+      const x =
+        centerX + orbitWidth * Math.cos(angles[index] + (index * Math.PI) / 2);
+      const y =
+        centerY + orbitWidth * Math.sin(angles[index] + (index * Math.PI) / 2);
+
+      planet.style.transform = `translateX(${x}px) translateY(${y}px)`;
     });
 
     requestAnimationFrame(animate);

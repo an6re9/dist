@@ -66,7 +66,7 @@
                   </div>
                   <a
                     class="button page-presentation__button"
-                    href="https://t.me/LaboratoryDotBot"
+                    href="https://t.me/LaboratoryDotBot?start=link_FhpNbUl0Ao"
                   >
                     <span class="button__text">Написать нам</span>
                   </a>
@@ -74,11 +74,12 @@
                 <div class="page-presentation__view">
                   <div class="page-presentation__view-item">
                     <div class="page-presentation__view-back">
+                      <div class="page-presentation__orbit"></div>
                       <!-- telegram -->
                       <div
-                        class="planet"
+                        class="planet planet_light-back"
                         data-orbit-width="400"
-                        data-planet-speed="0.002"
+                        data-planet-speed="5"
                         style="position: absolute"
                       >
                         <svg
@@ -97,8 +98,9 @@
                       <!-- gear -->
                       <div
                         class="planet"
+                        data-direction="false"
                         data-orbit-width="270"
-                        data-planet-speed="0.0001"
+                        data-planet-speed="10"
                         style="position: absolute"
                       >
                         <svg
@@ -117,9 +119,9 @@
 
                       <!-- message -->
                       <div
-                        class="planet"
+                        class="planet planet_light-back"
                         data-orbit-width="400"
-                        data-planet-speed="0.0002"
+                        data-planet-speed="5"
                         style="position: absolute"
                       >
                         <svg
@@ -139,8 +141,9 @@
                       <!-- basket -->
                       <div
                         class="planet"
+                        data-direction="false"
                         data-orbit-width="270"
-                        data-planet-speed="0.0001"
+                        data-planet-speed="10"
                         style="position: absolute"
                       >
                         <svg
@@ -165,9 +168,9 @@
                 <div
                   class="page-presentation__tg-benefits page-presentation__tg-benefits-left tg-benefits"
                 >
-                  <div class="tg-benefits__item">
-                    <div class="tg-benefits__icon">
-                      <img src="img/presentation/bottom/first.png" alt="" />
+                  <div class="tg-benefits__item" data-animated-sticker="medal">
+                    <div class="tg-benefits__icon tg-benefits__icon_medal">
+                      <div></div>
                     </div>
                     <div class="tg-benefits__info">
                       <div class="tg-benefits__title">Быть в тренде</div>
@@ -178,9 +181,9 @@
                       </div>
                     </div>
                   </div>
-                  <div class="tg-benefits__item">
-                    <div class="tg-benefits__icon">
-                      <img src="img/presentation/bottom/coin.png" alt="" />
+                  <div class="tg-benefits__item" data-animated-sticker="money">
+                    <div class="tg-benefits__icon tg-benefits__icon_money">
+                      <div></div>
                     </div>
 
                     <div class="tg-benefits__info">
@@ -207,9 +210,9 @@
                 </div>
 
                 <div class="page-presentation__tg-benefits tg-benefits">
-                  <div class="tg-benefits__item">
-                    <div class="tg-benefits__icon">
-                      <img src="img/presentation/bottom/rocket.png" alt="" />
+                  <div class="tg-benefits__item" data-animated-sticker="rocket">
+                    <div class="tg-benefits__icon tg-benefits__icon_rocket">
+                      <div></div>
                     </div>
 
                     <div class="tg-benefits__info">
@@ -219,9 +222,10 @@
                       </div>
                     </div>
                   </div>
-                  <div class="tg-benefits__item">
-                    <div class="tg-benefits__icon">
-                      <img src="img/presentation/bottom/hand.png" alt="" />
+                  <div class="tg-benefits__item" data-animated-sticker="arm">
+                    <div class="tg-benefits__icon tg-benefits__icon_arm">
+                      <div></div>
+                      <!-- <img src="img/presentation/bottom/hand.png" alt="" /> -->
                     </div>
 
                     <div class="tg-benefits__info">
@@ -257,9 +261,14 @@
                 </div>
                 <div class="page-about__header-info">
                   <h2 class="title page-about__title">Почему мы?</h2>
-                  <div class="page-about__item">
-                    <div class="page-about__item-icon">
-                      <img src="img/about/icons/user.png" alt="" />
+                  <article
+                    class="page-about__item"
+                    data-animated-sticker="personal"
+                  >
+                    <div
+                      class="page-about__item-icon page-about__item-icon_personal"
+                    >
+                      <div></div>
                     </div>
 
                     <div class="page-about__item-title">Панель управления</div>
@@ -271,25 +280,34 @@
                       Наши боты работают в связке с платформой
                       <a
                         class="_color-blue"
-                        href="https://t.me/LaboratoryDotBot"
+                        href="https://puzzlebot.top/?r=laboratory"
                         >PuzzleBot ://</a
                       >
                     </div>
-                  </div>
+                  </article>
                 </div>
               </div>
 
               <div class="page-about__bottom">
                 <!--  -->
-                <article class="page-about__item">
+                <article
+                  class="page-about__item _align-start"
+                  data-animated-sticker="robot"
+                >
                   <div
-                    class="page-about__item-icon page-about__item-icon_improvements"
-                  ></div>
+                    class="page-about__item-icon page-about__item-icon_robot"
+                  >
+                    <div></div>
+                  </div>
                   <h3 class="page-about__item-title">Непрерывные улучшения</h3>
                   <div class="page-about__item-text">
                     Новые функции
-                    <span class="_color-blue">Telegram Bot API</span> всегда
-                    будут доступны вашему боту
+                    <a
+                      class="_color-blue"
+                      href="https://core.telegram.org/bots/api"
+                      >Telegram Bot API</a
+                    >
+                    всегда будут доступны вашему боту
                   </div>
                 </article>
                 <!--  -->
@@ -380,21 +398,31 @@
                   </div>
                 </div>
                 <!--  -->
-                <article class="page-about__item">
+                <article
+                  class="page-about__item _align-end"
+                  data-animated-sticker="keyboard"
+                >
                   <div
                     class="page-about__item-icon page-about__item-icon_keyboard"
-                  ></div>
+                  >
+                    <div></div>
+                  </div>
 
-                  <h3 class="page-about__item-title">Что-то сюда</h3>
+                  <h3 class="page-about__item-title">Кодинг без ограничений</h3>
                   <div class="page-about__item-text">
-                    Например то что мы ещё и кодить умеем
+                    Интегрируем в ботов CRM, нейронные сети и всё что нужно
                   </div>
                 </article>
 
-                <article class="page-about__item">
+                <article
+                  class="page-about__item"
+                  data-animated-sticker="helmet"
+                >
                   <div
-                    class="page-about__item-icon page-about__item-icon_shield"
-                  ></div>
+                    class="page-about__item-icon page-about__item-icon_helmet"
+                  >
+                    <div class=""></div>
+                  </div>
                   <h3 class="page-about__item-title">Оптимизация и защита</h3>
                   <div class="page-about__item-text">
                     Постоянная работа над оптимизацией нагрузок, а также защита
@@ -402,10 +430,15 @@
                   </div>
                 </article>
                 <!--  -->
-                <article class="page-about__item">
+                <article
+                  class="page-about__item"
+                  data-animated-sticker="support"
+                >
                   <div
-                    class="page-about__item-icon page-about__item-icon_lifebuoy"
-                  ></div>
+                    class="page-about__item-icon page-about__item-icon_support"
+                  >
+                    <div class=""></div>
+                  </div>
 
                   <h3 class="page-about__item-title">Двойная поддержка</h3>
                   <div class="page-about__item-text">
@@ -473,6 +506,7 @@
                         <span>8</span>
                       </div>
                     </div>
+                    <div class="swiper-back"></div>
                   </div>
                   <button
                     class="slider__arrow slider__arrow-right header-slider__arrow"
@@ -512,11 +546,8 @@
                             <a
                               class="cases-slider__slide-link _color-blue _color-blue"
                               href="https://t.me/Djinn_belka_bot"
-                              ><span>@Djinn_belka_bot</span
-                              ><img
-                                src="img/reviews/common/review-arrow.png"
-                                alt="arrow"
-                            /></a>
+                              ><span>@Djinn_belka_bot</span>
+                            </a>
                           </div>
                         </div>
                         <div class="cases-slider__slide-tags">
@@ -594,11 +625,8 @@
                             <a
                               class="cases-slider__slide-link _color-blue _color-blue"
                               href="https://t.me/Djinn_belka_bot"
-                              ><span>@Djinn_belka_bot</span
-                              ><img
-                                src="img/reviews/common/review-arrow.png"
-                                alt="arrow"
-                            /></a>
+                              ><span>@Djinn_belka_bot</span></a
+                            >
                           </div>
                         </div>
                         <div class="cases-slider__slide-tags">
@@ -676,11 +704,8 @@
                             <a
                               class="cases-slider__slide-link _color-blue _color-blue"
                               href=""
-                              ><span>@Djinn_belka_bot 1</span
-                              ><img
-                                src="img/reviews/common/review-arrow.png"
-                                alt="arrow"
-                            /></a>
+                              ><span>@Djinn_belka_bot 1</span></a
+                            >
                           </div>
                         </div>
                         <div class="cases-slider__slide-tags">
@@ -755,11 +780,8 @@
                             <a
                               class="cases-slider__slide-link _color-blue _color-blue"
                               href=""
-                              ><span>@Djinn_belka_bot </span
-                              ><img
-                                src="img/reviews/common/review-arrow.png"
-                                alt="arrow"
-                            /></a>
+                              ><span>@Djinn_belka_bot </span></a
+                            >
                           </div>
                         </div>
                         <div class="cases-slider__slide-tags">
@@ -834,11 +856,8 @@
                             <a
                               class="cases-slider__slide-link _color-blue _color-blue"
                               href=""
-                              ><span>@Djinn_belka_bot 1</span
-                              ><img
-                                src="img/reviews/common/review-arrow.png"
-                                alt="arrow"
-                            /></a>
+                              ><span>@Djinn_belka_bot 1</span></a
+                            >
                           </div>
                         </div>
                         <div class="cases-slider__slide-tags">
@@ -913,11 +932,8 @@
                             <a
                               class="cases-slider__slide-link _color-blue _color-blue"
                               href=""
-                              ><span>@Djinn_belka_bot 1</span
-                              ><img
-                                src="img/reviews/common/review-arrow.png"
-                                alt="arrow"
-                            /></a>
+                              ><span>@Djinn_belka_bot 1</span></a
+                            >
                           </div>
                         </div>
                         <div class="cases-slider__slide-tags">
@@ -992,11 +1008,8 @@
                             <a
                               class="cases-slider__slide-link _color-blue _color-blue"
                               href=""
-                              ><span>@Djinn_belka_bot 1</span
-                              ><img
-                                src="img/reviews/common/review-arrow.png"
-                                alt="arrow"
-                            /></a>
+                              ><span>@Djinn_belka_bot 1</span></a
+                            >
                           </div>
                         </div>
                         <div class="cases-slider__slide-tags">
@@ -1071,11 +1084,8 @@
                             <a
                               class="cases-slider__slide-link _color-blue _color-blue"
                               href=""
-                              ><span>@Djinn_belka_bot</span
-                              ><img
-                                src="img/reviews/common/review-arrow.png"
-                                alt="arrow"
-                            /></a>
+                              ><span>@Djinn_belka_bot</span></a
+                            >
                           </div>
                         </div>
                         <div class="cases-slider__slide-tags">
@@ -1127,6 +1137,7 @@
                       </div>
                     </div>
                   </div>
+                  <div class="swiper-back"></div>
                 </div>
                 <button
                   class="slider__arrow slider__arrow-right cases-slider__arrow cases-slider__arrow-right"
@@ -1181,11 +1192,15 @@
 
                   <div class="review-item__reactions">
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_fire"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_fire"
+                      ></div>
                       <span>28</span>
                     </button>
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_nice"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_nice"
+                      ></div>
                       <span>9</span>
                     </button>
                   </div>
@@ -1213,11 +1228,15 @@
 
                   <div class="review-item__reactions">
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_fire"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_fire"
+                      ></div>
                       <span>28</span>
                     </button>
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_nice"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img review-item__reactions-img_nice"
+                      ></div>
                       <span>9</span>
                     </button>
                   </div>
@@ -1246,11 +1265,15 @@
 
                   <div class="review-item__reactions">
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_fire"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_fire"
+                      ></div>
                       <span>28</span>
                     </button>
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_nice"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img review-item__reactions-img_nice"
+                      ></div>
                       <span>9</span>
                     </button>
                   </div>
@@ -1278,44 +1301,15 @@
 
                   <div class="review-item__reactions">
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_fire"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_fire"
+                      ></div>
                       <span>28</span>
                     </button>
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_nice"></div>
-                      <span>9</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="page-reviews__item review-item grid--item hidden">
-                <div class="review-item__header">
-                  <img
-                    class="review-item__client-photo"
-                    src="img/reviews/content/review.jpg"
-                    alt="client"
-                  />
-                  <div class="review-item__client-info">
-                    <div class="review-item__client-name">Александр Байкин</div>
-                    <div class="review-item__client-company">
-                      Название компании
-                    </div>
-                  </div>
-                </div>
-                <div class="review-item__bottom">
-                  <div class="review-item__text">
-                    Конструктор ботов для телеграмм предоставляет удобный и
-                    простой инструмент, с помощью которого люди могут создавать,
-                    разрабатывать и управлять своими ботами для телеграмма.
-                  </div>
-
-                  <div class="review-item__reactions">
-                    <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_fire"></div>
-                      <span>28</span>
-                    </button>
-                    <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_nice"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_nice"
+                      ></div>
                       <span>9</span>
                     </button>
                   </div>
@@ -1340,6 +1334,43 @@
                     Конструктор ботов для телеграмм предоставляет удобный и
                     простой инструмент, с помощью которого люди могут создавать,
                     разрабатывать и управлять своими ботами для телеграмма.
+                  </div>
+
+                  <div class="review-item__reactions">
+                    <button class="review-item__reactions-button">
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_fire"
+                      ></div>
+                      <span>28</span>
+                    </button>
+                    <button class="review-item__reactions-button">
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_nice"
+                      ></div>
+                      <span>9</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="page-reviews__item review-item grid--item hidden">
+                <div class="review-item__header">
+                  <img
+                    class="review-item__client-photo"
+                    src="img/reviews/content/review.jpg"
+                    alt="client"
+                  />
+                  <div class="review-item__client-info">
+                    <div class="review-item__client-name">Александр Байкин</div>
+                    <div class="review-item__client-company">
+                      Название компании
+                    </div>
+                  </div>
+                </div>
+                <div class="review-item__bottom">
+                  <div class="review-item__text">
+                    Конструктор ботов для телеграмм предоставляет удобный и
+                    простой инструмент, с помощью которого люди могут создавать,
+                    разрабатывать и управлять своими ботами для телеграмма.
                     Конструктор ботов для телеграмм предоставляет удобный и
                     простой инструмент, с помощью которого люди могут создавать,
                     разрабатывать и управлять своими ботами для телеграмма.
@@ -1347,11 +1378,15 @@
 
                   <div class="review-item__reactions">
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_fire"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_fire"
+                      ></div>
                       <span>28</span>
                     </button>
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_nice"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_nice"
+                      ></div>
                       <span>9</span>
                     </button>
                   </div>
@@ -1379,11 +1414,15 @@
 
                   <div class="review-item__reactions">
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_fire"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_fire"
+                      ></div>
                       <span>28</span>
                     </button>
                     <button class="review-item__reactions-button">
-                      <div class="review-item__reactions-img_nice"></div>
+                      <div
+                        class="review-item__reactions-img review-item__reactions-img_nice"
+                      ></div>
                       <span>9</span>
                     </button>
                   </div>
@@ -1404,18 +1443,23 @@
                   Мы создали бота, который всего за 10 вопросов сможет назвать
                   цену разработки
                 </div>
-                <a class="button page-price__button" href="">
+                <a
+                  class="button page-price__button"
+                  href="https://t.me/LaboratoryDotBot?start=link_II4XoSxikc"
+                >
                   <span class="button__text">Рассчитать стоимость</span>
                 </a>
                 <div class="discount">
-                  <img
-                    class="discount__img"
-                    src="img/common/image14.png"
-                    alt=""
-                  />
-                  <div class="discount__info">
-                    <div class="discount__title">Скидка 5%</div>
-                    <div class="discount__text">за подробный ответ</div>
+                  <div class="discount__content">
+                    <img
+                      class="discount__img"
+                      src="img/common/gift.png"
+                      alt=""
+                    />
+                    <div class="discount__info">
+                      <div class="discount__title">Скидка 5%</div>
+                      <div class="discount__text">за подробный ответ</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1476,10 +1520,12 @@
                   <div class="page-plan__stage">
                     <div class="page-plan__stage-info-wrap">
                       <article class="page-plan__stage-info">
-                        <h3 class="page-plan__stage-title">Подача заявки</h3>
+                        <h3 class="page-plan__stage-title">
+                          Техническое задание
+                        </h3>
                         <div class="page-plan__stage-text">
-                          Личный менеджер обрабатывает анкету и составляет
-                          список вопросов
+                          Прорабатываем каждый пункт будущего заказа совместно с
+                          командой
                         </div>
                       </article>
                     </div>
@@ -1510,10 +1556,12 @@
                       <article
                         class="page-plan__stage-info page-plan__stage-info_payment"
                       >
-                        <h3 class="page-plan__stage-title">Подача заявки</h3>
+                        <h3 class="page-plan__stage-title">
+                          Заключение договора
+                        </h3>
                         <div class="page-plan__stage-text">
-                          Личный менеджер обрабатывает анкету и составляет
-                          список вопросов
+                          Разделение работы на этапы с возможностью
+                          последовательной оплаты
                         </div>
                       </article>
                     </div>
@@ -1578,10 +1626,12 @@
                       <article
                         class="page-plan__stage-info page-plan__stage-info_development"
                       >
-                        <h3 class="page-plan__stage-title">Подача заявки</h3>
+                        <h3 class="page-plan__stage-title">
+                          Этап второй разработка
+                        </h3>
                         <div class="page-plan__stage-text">
-                          Личный менеджер обрабатывает анкету и составляет
-                          список вопросов
+                          Да, тут разработка. Что про неё сказать? Много кода,
+                          мало сна...
                         </div>
                       </article>
                     </div>
@@ -1604,10 +1654,12 @@
                       <article
                         class="page-plan__stage-info page-plan__stage-info_development"
                       >
-                        <h3 class="page-plan__stage-title">Подача заявки</h3>
+                        <h3 class="page-plan__stage-title">
+                          Завершение работы
+                        </h3>
                         <div class="page-plan__stage-text">
-                          Личный менеджер обрабатывает анкету и составляет
-                          список вопросов
+                          Передача данных от личного кабинета и всех связанных
+                          сервисов
                         </div>
                       </article>
                     </div>
@@ -1623,12 +1675,11 @@
                   <h3 class="page-plan__stage-title">Гарантия и поддержка</h3>
                   <div class="page-plan__stage-text">
                     Год гарантии на разработку, в течение которой выполняем
-                    косметические изменения бесплатно Год гарантии на
+                    косметические изменения бесплатно
                   </div>
                 </article>
               </div>
             </div>
-            <!-- </div> -->
           </div>
         </div>
         <!-- answers -->
@@ -1719,7 +1770,10 @@
                 Скажем стоимость, сроки и поделимся опытом
               </div>
 
-              <a class="button page-request__button" href="">
+              <a
+                class="button page-request__button"
+                href="https://t.me/LaboratoryDotBot?start=link_F3CqSNZxNm"
+              >
                 <span class="button__text">Оставить заявку</span>
               </a>
               <div class="json-anim-page-request"></div>
@@ -1738,9 +1792,9 @@
                   ></div>
                   <div class="page-contacts__item-info">
                     <div class="page-contacts__item-title">Почта</div>
-                    <a class="page-contacts__item-link" href=""
-                      >mail@laboratory.bot</a
-                    >
+                    <div class="page-contacts__item-link">
+                      mail@laboratory.bot
+                    </div>
                   </div>
                 </div>
                 <div class="page-contacts__item">
@@ -1757,7 +1811,6 @@
                       >
                     </div>
                   </div>
-                  <img src="img/reviews/common/review-arrow.png" alt="" />
                 </div>
                 <div class="page-contacts__item">
                   <div class="page-contacts__item-content">
@@ -1773,7 +1826,6 @@
                       >
                     </div>
                   </div>
-                  <img src="img/reviews/common/review-arrow.png" alt="arrow" />
                 </div>
               </div>
               <div class="creators">
@@ -1785,7 +1837,9 @@
                 </div>
                 <div class="creators__text">
                   Проект сделан командой
-                  <a class="_color-blue" href="https://puzzlebot.top"
+                  <a
+                    class="_color-blue"
+                    href="https://puzzlebot.top/?r=laboratory"
                     >PuzzleBot ://</a
                   >
                 </div>
@@ -1793,7 +1847,7 @@
             </div>
           </div>
         </div>
-        <div class="json-anim-footer"></div>
+        <div class="json-anim-footer" data-name="json-anim-footer"></div>
       </main>
     </div>
     <script src="js/lib/swiper-bundle.min.js"></script>
