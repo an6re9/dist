@@ -700,7 +700,7 @@ img {
 }
 
 .member__position {
-  font-size: 15px;
+  font-size: 13px;
   line-height: 147%;
   color: #9a9b9e;
 }
@@ -829,7 +829,7 @@ img {
 }
 
 .review-item__client-company {
-  font-size: 15px;
+  font-size: 13px;
   line-height: 147%;
   color: #9a9b9e;
 }
@@ -913,7 +913,7 @@ img {
 }
 
 .review-item__link-bot {
-  font-size: 15px;
+  font-size: 13px;
   line-height: 147%;
 }
 
@@ -1199,7 +1199,7 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 147%;
   color: #9a9b9e;
 }
@@ -1998,7 +1998,7 @@ img {
   }
 
   .page-header .header-menu__list-item a {
-    font-size: 15px;
+    font-size: 13px;
     padding: 8px 20px;
   }
 
