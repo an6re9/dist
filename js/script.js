@@ -9,6 +9,7 @@ window.addEventListener("resize", moveElementsOnResize);
 moveElementsOnResize();
 accordeon();
 lottieAnim();
+onHalfVisible(".chat__main", chatAnim); //intersection observer
 // lottie json animations
 //
 
@@ -77,6 +78,14 @@ function lottieAnim() {
     path: "img/presentation/bottom/JSONAnim/arm.json",
     name: "arm",
   });
+  // anim.loadAnimation({
+  //   container: document.querySelector(".chat__sticker"),
+  //   renderer: "canvas",
+  //   loop: true,
+  //   autoplay: true,
+  //   path: "img/common/JSONAnim/AnimatedSticker-hello.json",
+  //   name: "chat__sticker",
+  // });
 
   // about
 
@@ -338,6 +347,7 @@ function makeMovable(el) {
 
   let pointerStartPosition = 0;
   let offset = 0;
+  let scrollTopValue = 0;
   target.style.left = 0;
   target.style.position = "relative";
   target.style.cursor = "grab";
@@ -360,12 +370,20 @@ function makeMovable(el) {
     return targetWidth - parentWidth;
   }
   function moveHandler(e) {
-    target.style.left = `${offset + (e.clientX - pointerStartPosition)}px`;
+    const deltaY = e.clientY - pointerStartPosition.y;
+    const deltaX = e.clientX - pointerStartPosition.x;
+    console.log("scrollTop :" + document.documentElement.scrollTop);
+    console.log("deltaY :" + deltaY);
+    if (Math.abs(deltaY) > Math.abs(deltaX)) {
+      document.documentElement.scrollTop = scrollTopValue - deltaY;
+    } else {
+      target.style.left = `${offset + deltaX}px`;
+    }
   }
-
   function downHandler(e) {
     offset = getCurrentOffset();
-    pointerStartPosition = e.clientX;
+    pointerStartPosition = { x: e.clientX, y: e.clientY };
+    scrollTopValue = document.documentElement.scrollTop;
     target.style.left = `${offset}px`;
 
     target.addEventListener("pointermove", moveHandler);
@@ -413,5 +431,45 @@ function reactionsAddOne(button) {
   }
   function setNumber(button, value) {
     button.querySelector("span").textContent = value;
+  }
+}
+
+// функция для вызова chatAnim
+function onHalfVisible(selector, callback) {
+  const element = document.querySelector(selector);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio >= 0.6) {
+          callback();
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  observer.observe(element);
+}
+
+function chatAnim() {
+  const chat = document.querySelector(".chat");
+  const messageContainer = document.querySelector(".chat__main");
+  const messages = messageContainer.children;
+
+  let delay = 0;
+
+  messages[0].style.height = "auto"; // отображаем первое сообщение сразу при загрузке страницы
+
+  for (let i = 0; i < messages.length; i++) {
+    messages[i].style.opacity = "0"; // скрываем следующее сообщение
+
+    setTimeout(() => {
+      messages[i].style.display = "flex";
+      messages[i].style.opacity = "1"; // отображаем следующее сообщение
+      // messageContainer.scrollTop = messageContainer.scrollHeight; // прокручиваем контейнер сообщений вниз
+    }, delay);
+
+    delay += 600; // задержка перед показом каждого следующего сообщения
   }
 }
